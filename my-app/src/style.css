@@ -64,3 +64,16 @@ input[type="reset"] {
   margin: 1em auto;
   box-shadow: 20px 15px #6c757d;
 }
+.todoList-wrapper {
+  position: relative;
+}
+.todo-List-button1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.todo-List-button2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
