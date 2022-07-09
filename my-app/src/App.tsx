@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ToDoForm from './components/todoForm';
 import "./style.css"
 import { io } from 'socket.io-client';
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1 className='todo-header'>Todos</h1>
+      <ToDoForm />
     </div>
   );
 }

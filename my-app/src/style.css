@@ -5,3 +5,20 @@
   color: rgba(245, 76, 76, 0.768);
   font-size: 4em;
 }
+.input-todo {
+  width: 20em;
+  height: 2em;
+}
+input[type="text"] {
+  font-size: 2em;
+}
+.todo-label {
+  font-size: 2em;
+  margin: 1em;
+  font-family: "Kantumruy Pro", sans-serif;
+}
+input[type="text"]:focus {
+  border: none;
+  border-style: double;
+  border-color: cyan;
+}
