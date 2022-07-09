@@ -1,30 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import "./style.css"
 import { io } from 'socket.io-client';
+
+interface responseObj {
+  res: string
+}
 function App() {
   React.useEffect(function () {
     const socket = io("http://localhost:4000/");
     socket.on("connect", () => {
       console.log(socket.id);
     })
+    socket.emit("todo:create", "Go to shop and buy shirt and pants", (response: responseObj) => {
+      console.log("Response from creating a todo:create event = ", response.res);
+    });
   }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='todo-header'>Todos</h1>
     </div>
   );
 }
