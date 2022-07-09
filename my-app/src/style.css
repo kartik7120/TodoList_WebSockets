@@ -52,3 +52,15 @@ input[type="reset"] {
   top: 15%;
   right: 3%;
 }
+
+.todoTask {
+  background-color: #e5e5e5;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  font-weight: 300;
+  font-size: xx-large;
+  width: 60%;
+  margin: 1em auto;
+  box-shadow: 20px 15px #6c757d;
+}

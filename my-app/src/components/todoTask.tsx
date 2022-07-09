@@ -1,7 +1,8 @@
+import "../style.css"
 interface todoListInterface {
-    text:string
+    text: string
 }
-function TodoTask(props:todoListInterface) {
-    return <h1>{props.text}</h1>
+function TodoTask(props: todoListInterface) {
+    return <div className="todoTask">{props.text}</div>
 }
 export default TodoTask;
