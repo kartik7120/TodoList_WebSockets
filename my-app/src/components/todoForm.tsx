@@ -1,7 +1,8 @@
 import React from "react";
+import socket from "./socketInstance";
 interface propInterface {
     settodoList: React.Dispatch<React.SetStateAction<string[]>>,
-    // socket: any
+    todoState: string[]
 }
 function ToDoForm(props: propInterface) {
     const [formState, setFormState] = React.useState("");
@@ -12,6 +13,7 @@ function ToDoForm(props: propInterface) {
     function submitFunction(e: React.FormEvent): void {
         e.preventDefault();
         const text: string = formState;
+        socket.emit("create:todo", text);
         setFormState("");
         props.settodoList(function (oldState) {
             return [...oldState, text];
