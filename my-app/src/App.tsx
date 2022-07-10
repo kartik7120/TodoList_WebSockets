@@ -1,12 +1,9 @@
-// import React, { forwardRef, useRef } from 'react';
 import React from 'react';
 import './App.css';
 import ToDoForm from './components/todoForm';
 import "./style.css"
-import { io } from 'socket.io-client';
 import TodoTask from './components/todoTask';
-// import TodoTask from "./components/todoTask";
-// type todoType = null | string[];
+import socket from "./components/socketInstance";
 interface responseObj {
   res: string
 }
@@ -14,7 +11,6 @@ function App() {
   const [todoState, setTodoState] = React.useState([] as string[]);
 
   React.useEffect(function () {
-    const socket = io("http://localhost:4000/");
     socket.on("connect", () => {
       console.log(socket.id);
     })

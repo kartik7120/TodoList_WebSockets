@@ -1,6 +1,7 @@
 import React from "react";
 interface propInterface {
-    settodoList: React.Dispatch<React.SetStateAction<string[]>>
+    settodoList: React.Dispatch<React.SetStateAction<string[]>>,
+    // socket: any
 }
 function ToDoForm(props: propInterface) {
     const [formState, setFormState] = React.useState("");
