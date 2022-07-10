@@ -14,12 +14,20 @@ function App() {
     socket.on("connect", () => {
       console.log(socket.id);
     })
-    // socket.emit("todo:create", "Go to shop and buy shirt and pants", (response: responseObj) => {
-    //   console.log("Response from creating a todo:create event = ", response.res);
-    // });
     socket.on("create:todo", (todoTask) => {
       setTodoState(function (oldState) {
         return [...oldState, todoTask];
+      })
+    })
+    socket.on("delete:todo", (indexOfTodo) => {
+      setTodoState(function (oldState) {
+        return oldState.map((ele, index) => {
+          if (index === indexOfTodo) {
+            return "deleted";
+          }
+          else
+            return ele;
+        })
       })
     })
   }, [])
@@ -29,7 +37,7 @@ function App() {
       <ToDoForm settodoList={setTodoState} todoState={todoState} />
       <div className='todoList'>
         {todoState.map((ele) => {
-          return <TodoTask text={ele} key={ele + (Math.random() * 20)} />
+          return <TodoTask text={ele} key={ele + (Math.random() * 20)} todoState={todoState} settodoList={setTodoState} />
         })}
       </div>
     </div>
