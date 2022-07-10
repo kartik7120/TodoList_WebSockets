@@ -7,9 +7,6 @@ interface todoListInterface {
     todoState: string[]
 }
 function TodoTask(props: todoListInterface) {
-    function handleTaskCompleted(e: React.MouseEvent<HTMLElement>) {
-
-    }
     function handleTaskRemoved(e: React.MouseEvent<HTMLElement>) {
         const indexOfTodo = props.todoState.indexOf(props.text);
         socket.emit("delete:todo", indexOfTodo);
@@ -26,8 +23,7 @@ function TodoTask(props: todoListInterface) {
     return (
         <>
             {
-                props.text === "deleted" ? "" : (<div className="todoTask todoList-wrapper">{props.text}
-                    <button type="button" className="todo-List-button1" onClick={handleTaskCompleted}>✔️</button>
+                props.text === "deleted" ? "" : props.text === "done" ? "" : (<div className="todoTask todoList-wrapper">{props.text}
                     <button type="button" className="todo-List-button2" onClick={handleTaskRemoved}>❌</button>
                 </div>)
             }
